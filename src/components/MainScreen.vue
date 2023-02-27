@@ -3,21 +3,21 @@
     <h1>POKE MEMORIES</h1>
     <h2>Select mode to start game</h2>
     <div class="actions">
-      <button>
+      <button @click="onStart(16)">
         <span>4x4</span>
-        <span @click="onStart(16)">Easy</span>
+        <span>Easy</span>
       </button>
-      <button>
+      <button @click="onStart(36)">
         <span>6x6</span>
-        <span @click="onStart(36)">Normal</span>
+        <span>Normal</span>
       </button>
-      <button>
+      <button @click="onStart(64)">
         <span>8x8</span>
-        <span @click="onStart(64)">Hard</span>
+        <span>Hard</span>
       </button>
-      <button>
+      <button @click="onStart(100)">
         <span>10x10</span>
-        <span @click="onStart(100)">Super Hard</span>
+        <span>Super Hard</span>
       </button>
     </div>
   </div>
@@ -27,7 +27,7 @@
 export default {
   methods: {
     onStart(value) {
-      this.$emit("onStart", { value });
+      this.$emit("onStart", value);
     },
   },
 };
