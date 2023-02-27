@@ -1,5 +1,13 @@
 <template>
-  <div class="card">
+  <div
+    class="card"
+    :class="{ disable: isDisable }"
+    :style="{
+      height: `${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px`,
+      width:
+        (`${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px` * 3) / 4,
+    }"
+  >
     <div
       class="card__inner"
       :class="{ 'is-flipped': is_flipped }"
@@ -30,21 +38,32 @@ export default {
       type: [String, Number, Array, Object],
       required: true,
     },
+    cardsContext: {
+      type: Array,
+      default: function () {
+        return [];
+      },
+    },
   },
   data() {
     return {
+      isDisable: false,
       is_flipped: false,
     };
   },
   methods: {
     onToggleFlipCard() {
-      this.is_flipped = !this.is_flipped;
-      if (this.is_flipped) {
-        this.$emit("onFlipped", this.card);
+      if (this.isDisable) {
+        return false;
       }
+      this.is_flipped = !this.is_flipped;
+      if (this.is_flipped) this.$emit("onFlipped", this.card);
     },
     onFlipBackCard() {
       this.is_flipped = false;
+    },
+    onEnableDisableMod() {
+      this.isDisable = true;
     },
   },
 };
@@ -64,6 +83,9 @@ export default {
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+}
+.card.disable .card__inner {
+  cursor: default;
 }
 .card__inner.is-flipped {
   transform: rotateY(-180deg);
