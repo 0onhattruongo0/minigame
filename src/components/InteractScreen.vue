@@ -1,6 +1,19 @@
 <template>
   <div class="screen">
-    <div class="screen__inner">
+    <div
+      class="screen__inner"
+      :style="{
+        width: `${
+          (((98 / Math.sqrt(cardsContext.length) -
+            98 / Math.sqrt(cardsContext.length) / 10) *
+            3) /
+            4) *
+            Math.sqrt(cardsContext.length) +
+          Math.sqrt(cardsContext.length) *
+            (98 / Math.sqrt(cardsContext.length) / 50)
+        }vh`,
+      }"
+    >
       <Card
         v-for="(card, index) in cardsContext"
         :key="index"
@@ -85,9 +98,8 @@ export default {
   color: var(--light);
 }
 .screen__inner {
-  width: 424px;
   display: flex;
   flex-wrap: wrap;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 </style>

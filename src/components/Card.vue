@@ -3,9 +3,19 @@
     class="card"
     :class="{ disable: isDisable }"
     :style="{
-      height: `${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px`,
-      width:
-        (`${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px` * 3) / 4,
+      // height: `${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px`,
+      height: `${
+        98 / Math.sqrt(cardsContext.length) -
+        98 / Math.sqrt(cardsContext.length) / 10
+      }vh`,
+      width: `${
+        ((98 / Math.sqrt(cardsContext.length) -
+          98 / Math.sqrt(cardsContext.length) / 10) *
+          3) /
+        4
+      }vh`,
+      marginRight: `${98 / Math.sqrt(cardsContext.length) / 50}vh`,
+      marginBottom: `${98 / Math.sqrt(cardsContext.length) / 50}vh`,
     }"
   >
     <div
@@ -13,10 +23,20 @@
       :class="{ 'is-flipped': is_flipped }"
       @click="onToggleFlipCard"
     >
-      <div class="card__face card__face--front">
+      <div
+        class="card__face card__face--front"
+        :style="{
+          padding: `${98 / Math.sqrt(cardsContext.length) / 12}vh`,
+        }"
+      >
         <div class="card__content"></div>
       </div>
-      <div class="card__face card__face--back">
+      <div
+        class="card__face card__face--back"
+        :style="{
+          padding: `${98 / Math.sqrt(cardsContext.length) / 12}vh`,
+        }"
+      >
         <div
           class="card__content"
           :style="{
@@ -71,8 +91,6 @@ export default {
 <style lang="css" scoped>
 .card {
   display: inline-block;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
   width: 90px;
   height: 120px;
 }

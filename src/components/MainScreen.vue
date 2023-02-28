@@ -32,3 +32,20 @@ export default {
   },
 };
 </script>
+<style scoped>
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.screen button {
+  padding: 1rem;
+  background-color: var(--dark);
+  color: var(--light);
+  margin: 0.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
