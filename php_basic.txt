@@ -1,0 +1,112 @@
+-Biến:
+ +Khai báo biến: $ten_bien
+ +Nối biến: Biến vs biến(.), biến với chuỗi('...'.$(ten_bien).'...')
+-Hằng:(chỉ nhận giá trị đầu tiên)
+ +Khai báo hằng: define('ten_hang','giá trị') or const ten_hang='giá trị'
+
+-Các kiểu dữ liệu:
+ +int: 
+ 	. $ten_bien = so_nguyen
+	. Ép kiểu = (int)$ten_bien
+	. Kiểm tra số nguyên: is_int($ten_bien) or is_integer($ten_bien)
+ +boolean:
+	.$ten_bien = giá trị Boolen (true or false)
+	.Ép kiểu: (bool)$ten_bien or (boolean)$ten_bién
+	.Các ký tự: 0, trống, null để quy về false, ngược lại true
+	.Kiểm tra biến kiểu boolean: is_bool($ten_bien)
+ +số thực:
+	.$ten_bien = số thực(Số có phần thập phân)
+	.Ép kiểu: (float)$ten_bien
+	.Kiểm tra: is_float($ten_bien)
+ +string:
+	.$ten_bien = "chuỗi"
+	.Kiểm tra: is_string($ten_bien)
+ +mảng:
+	.$ten_bien = array()
+	.Ép kiểu: (array)$ten_bien
+	.Kiểm tra: is_array($ten_bien)
+ +null:
+	.$ten_bien = null
+	.Ép kiểu sang int => 0
+	.Ép kiểu String => Rỗng
+	.Ép kiểu Boolean => false
+	.Kiểm tra: is_null($ten_bien)
+ +resource: 
+	.Kiểu dữ liệu đặc biệt, nó lưu trữ tham chiếu đến các hàm- tài nguyên bên ngoài PHP: file,curl,database
+	.Kiểm tra: is_resource($ten_bien)
+ +đối tượng(obiect):
+	.Kiểu dữ liệu này lưu trữ dữ liệu và cách xử lý dữ liệu đó(Học kỹ ở phần lập trình hướng đối tượng)
+	.Ép kiểu: (object)bien_mang
+	.Kiểm tra: is_object($ten_bien)
+
+-Toán tử:
+ +Biểu thức: tập hợp các toán tử và toán hạng
+	.Toán hạng: Các biến hay các giá trị được thực hiện
+	.Toán tử: Các phép toán: cộng,trừ,nhân,chia,so sánh,lấy phần dư...
+ +Toán tử gán: =,+=,-=,*=,%=,.=
+ +Toán tử số học: +,-,*,/,%,**,++,--
+ +Toán tử so sánh: >,<,>=,<=,==,===,!=
+ +Toán tử lý luận: &&,||,!(Độ ưu tiên NOT => AND => OR)
+
+-Câu lệnh rẽ nhánh:
+ +If(condition){}
+ +If(condition){}else{}
+ +If(condition){}elseif(condition){}else{}
+
+-Câu lệnh rẽ nhánh switch-case:
+ +switch($ten_bien){
+	case 'giá trị 1':
+	case 'giá trị 2':
+	case 'giá trị 3':
+	//Danh sách câu lệnh
+	break;
+	case 'giá trị 4':
+	//Danh sách câu lệnh
+	break;
+	default:
+	//Danh sách câu lệnh
+	break;
+ }
+
+-Vòng lặp: 
+ +for, while, do while
+ + foreach
+
+-Lệnh include, include_once, require, require_once:
+ + Đều import file vào.
+ +include_once,require_once => chỉ import 1 lần
+ +include, include_once => vẫn chạy khi chương trình lỗi
+ +require, require_once => ko chạy khi chương trình lỗi
+-cú pháp thay thế lệnh rẽ nhánh:
+ +Toán tử 3 ngôi
+
+-xử lý chuỗi:
+ +addslashes($str,$listChar): Thêm ký tự escape(\) vào phía trước ký tự mong muốn
+ +addslashes($str): Thêm ký tự escape vào phía trước dấu nháy ",'
+ +stripslashes($str): Xóa bỏ ký tự escape
+ +explode($delimiter,$string): Hàm này sẽ chuyển 1 chuỗi thành 1 mảng dự vào ký tự tách mảng là $delimiter
+ +implode($delimiter,$arr): Hàm chyển mảng thành chuỗi ngăn cách bằng ký tự $delimiter(có thể dấu cách or rỗng)
+ +strlen($str): độ dài chuỗi
+ +str_repeat($str,$n): lặp chuỗi với n lần
+ +str_replace($search,$replace,$string): Hàm này tìm chuỗi $search và thay thành chuỗi $replace trong $string
+ +md5($str): Hàm mã hóa md5 chuỗi $str(32 ký tự)(bây giờ đã dùng phương pháp mã hóa khác) 
+ +sha1($str): Hàm mã hóa sha1 chuỗi $str(40 ký tự)
+ +htmlentities($str) = htmlspecialchars($str): chuyển thẻ html sang dạng thực thể(in ra màn hình các thẻ html)
+ +html_entuty_decode($str): ngược lại hàm htmlentities
+ +strip_tags($string, $allow_tags): Hàm loại bỏ các thẻ html trong chuỗi $string, $allow_tags cho phép thẻ tồn tại
+ +substr($str,$start,$length): Hàm lấy chuỗi con từ chuỗi cha, bắt đầu từ $start với độ dài $length(lấy cuối chuỗi thì dùng số âm và ko có $start)
+ +strstr($string,$start_str): Tách 1 chuỗi ký tự cho trước $start_str
+ +strpos($str,$substr): Tìm chuoix $substr trong chuỗi $str. Nếu có trả về số thứ tự. Ngược lại trả về false
+ +substr_replace($str,$replace,$pos,$lent): Hàm sẽ cắt bỏ một đoạn hoặc toàn bộ chuỗi và thay thế 1 đoạn bị cắt bằng 1 chuỗi con khác
+ +strtolower($str): Hàm chuyển tất cả ký tự sang chữ thường (ko hỗ trợ tiếng Việt => thay bằng mb_strtolower($str,'UTF-8'))
+ +strtoupper($str): Hàm chuyển tất cả ký tự sang chữ Hoa (ko hỗ trợ tiếng Việt => thay bằng mb_strtoupper($str,'UTF-8'))
+ +ucfirst($str): chuyển chữ cái đầu tiên thành chữ Hoa
+ +Icfirst($str): chuyển chữ cái đầu tiên thành chữ thường
+ +ucwords($str): Hàm chuyển từ đầu tiên trong chữ phân biệt bằng dấu cách sang viết Hoa(thường dùng trong Họ tên)
+ +trim($str, $char): xóa ký tự $char đầu cuối. Nếu ko có $char nghĩa là ký tự trắng
+ +ltrim($str, $char): xóa ký tự $char đầu. Nếu ko có $char nghĩa là ký tự trắng
+ +rtrim($str, $char): xóa ký tự $char cuối. Nếu ko có $char nghĩa là ký tự trắng
+ +chunk_split($str,$number,$char): Tách thành từng chuỗi nhỏ, $number là chuỗi con có bao nhiêu ký tự, $char là ký tự ngăn cách
+ +nl2br($str): chuyển ký tự xuống dòng \n thành thẻ xuống dòng <br> trong HTML(dùng trong csdl)
+ +json_decode($json,$is_array): chuyển chuỗi dạng json thành mảng hoặc object. Nếu $is_array= true trả về mảng, nếu không truyền thì sang Object
+ +json_encode($array_or_object): chuyển dạng mảng hoặc object thành json
