@@ -96,7 +96,8 @@
  +strip_tags($string, $allow_tags): Hàm loại bỏ các thẻ html trong chuỗi $string, $allow_tags cho phép thẻ tồn tại
  +substr($str,$start,$length): Hàm lấy chuỗi con từ chuỗi cha, bắt đầu từ $start với độ dài $length(lấy cuối chuỗi thì dùng số âm và ko có $start)
  +strstr($string,$start_str): Tách 1 chuỗi ký tự cho trước $start_str
- +strpos($str,$substr): Tìm chuoix $substr trong chuỗi $str. Nếu có trả về số thứ tự. Ngược lại trả về false
+ +strpos($str,$substr): Tìm chuỗi $substr trong chuỗi $str. Nếu có trả về số thứ tự. Ngược lại trả về false
+ +strripos($str,$substr): Tìm chuoix $substr cuối trong chuỗi $str. Nếu có trả về số thứ tự. Ngược lại trả về false
  +substr_replace($str,$replace,$pos,$lent): Hàm sẽ cắt bỏ một đoạn hoặc toàn bộ chuỗi và thay thế 1 đoạn bị cắt bằng 1 chuỗi con khác
  +strtolower($str): Hàm chuyển tất cả ký tự sang chữ thường (ko hỗ trợ tiếng Việt => thay bằng mb_strtolower($str,'UTF-8'))
  +strtoupper($str): Hàm chuyển tất cả ký tự sang chữ Hoa (ko hỗ trợ tiếng Việt => thay bằng mb_strtoupper($str,'UTF-8'))
@@ -110,3 +111,6 @@
  +nl2br($str): chuyển ký tự xuống dòng \n thành thẻ xuống dòng <br> trong HTML(dùng trong csdl)
  +json_decode($json,$is_array): chuyển chuỗi dạng json thành mảng hoặc object. Nếu $is_array= true trả về mảng, nếu không truyền thì sang Object
  +json_encode($array_or_object): chuyển dạng mảng hoặc object thành json
+
+-Định nghĩa Hàm:
+
