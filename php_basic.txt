@@ -112,5 +112,65 @@
  +json_decode($json,$is_array): chuyển chuỗi dạng json thành mảng hoặc object. Nếu $is_array= true trả về mảng, nếu không truyền thì sang Object
  +json_encode($array_or_object): chuyển dạng mảng hoặc object thành json
 
--Định nghĩa Hàm:
+-Định nghĩa Hàm: function
+ +function_exists('ten_function'): kiểm tra function đó có ko.
+ +Biến cục bộ:
+ +Biến toàn cục: trong hàm sử dụng global $ten_bien (để trong hàm biết mình đang sử dụng biến toàn cục)
+ +Biến tĩnh(static): không thay đổi giá trị khi gọi lại hàm(khi tính toán xong sẽ nhận giá trị đó)
+ +Tham biến: làm thay đổi giá trị truyền vào(thêm & trước tên biến khi tạo hàm)
+ +Tham trị: không làm thay đổi giá trị truyền vào
+ +Tham số: được sử dụng khi định nghĩa hàm
+ +Tham chiếu: $b được khai báo tham chiếu đến $a => khi $b thay đổi thì $a thay đổi ($b = &$a)
 
+-Hàm isset(), empty():
+ +isset(): kiểm tra biến tồn tại ko, không kiểm tra được trường hợp null, ko kiểm tra dữ liệu của biến.
+ +empty():
+	.chỉ trả về kiểu dữ liệu boolean
+	.Trả về true nếu:
+	  +không tồn tại => !isset($ten_bien)
+	  +rỗng,=0,trống,null,array rỗng,object rỗng, false
+
+-Mảng:
+ +Duyệt mảng: foreach($array as $key =>$value){}    
+	.Trước khi duyệt: kiểm tra biến tồn tại, kiểm tra biến là mảng, kiểm tra mảng có phần tử
+
+-Các hàm xử lý mảng thường dùng:
+ +count($array)
+ +array_keys($array): Hàm lấy key
+ +array_pop($array): Hàm xóa phần tử cuối và trả về kết quả xóa
+ +array_shift($array): Hàm xóa phần tử đầu tiên và trả về kết quả xóa
+ +array_push($array,$var,$var...): Hàm có tác dụng thêm phần tử vào cuối mảng và trả về số lượng phần tử mảng sau khi thêm
+ +sort($array): Hàm sắp xếp theo chiều tăng dần
+ +array_reverse($array): Đảo ngược mảng
+ +array_merge($array,$array...): gộp mảng
+ +array_search($keyword,$array): Tìm kiếm $keyword trong $array. nếu có trả về key
+ +array_slice($array,$begin,$lenght): Hàm lấy phần tử trong mảng bắt đầu từ $begin độ dài $lenght phần tử
+ +array_unique($array): Loại bỏ phần tử trùng nhau trong mảng
+ +serialize($input): Hàm chuyển đổi một chuỗi,số,mảng,object thành chuỗi mã hóa
+ +unserialize($input): Hàm có tác dụng decode chuỗi được mã hóa bằng serialize
+ +json_encode($array): chuyển đổi thành chuỗi json
+ +json_decode($array): chuyển đổi json thành mảng
+ +array_key_exists($key,$array): kiểm tra xem "khóa $key" có tồn tại trong mảng không
+ +array_diff_assoc($array1,$array2,...): Hàm có tác dụng trả về một mảng có các key trong mảng $array1 mà $array2,...$arrayn không có
+ +array_intersect($array1,$array2): Hàm trả về mảng các phần tử giống nhau về value giữa các mảng $array
+ +is_array($array): phải mảng không
+
+-Kiểu dữ liệu number:
+ +Kiểm tra kiểu số: is_numeric($ten_bien) hoặc filter_var()
+ +Kiểm tra kiểu số nguyên: is_int($ten_bien) hoặc is_integer($ten_bien)
+ +Kiểm tra kiểu số thực: is_float($ten_bien)
+ +Ép kiểu sô nguyên: (int)$ten_bien
+ +Ép kiểu số thực: (float)$ten_bien
+ +Lấy trị tuyệt đối: abs($ten_bien)
+ +Làm tròn: round($ten_bien,$so_phan_thap_phan)
+ +Làm tròn xuống: floor($ten_bien)
+ +Làm tròn lên: ceil($ten_bien)
+ +Lấy số ngẫu nhiên: rand() hoặc rand(min,max)
+ +Định dạng số: number_format($ten_bien)
+
+_Xử lý datetime:
+ +date_default_timezone_set('Asia/Ho_Chi_Minh'): set múi giờ việt nam
+ +date('d/m/Y H:i:s')
+ +time(): lấy số giây tính từ thời điểm 00:00:00 1/1/1970 đến hiện tại
+ +strtotime($str): Hàm phân tích bất kỳ chuỗi thời gian bằng Tiếng Anh thành dạng timestamp của thời gian đó. (strtotime(date('Y-m-d 00:00:00')))
+ +strftime($format,$timestamp): Hàm xuất ra chuỗi thời gian theo đúng với định dạng truyền vào. Kết quả tùy vào việc cài đặt ngôn ngữ(locale settings)
